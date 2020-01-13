@@ -26,6 +26,8 @@ SplineWidget::SplineWidget(QWidget *parent) : QWidget(parent) {
   for (int i = 0; i < 6; ++i) {
     auto x = QRandomGenerator::global()->generateDouble() * width();
     auto y = QRandomGenerator::global()->generateDouble() * height();
+    x = qMin(qMax(10.0, x), double(width() - 10));
+    y = qMin(qMax(10.0, y), double(width() - 10));
     mControls.append(QPointF(x, y));
   }
 
